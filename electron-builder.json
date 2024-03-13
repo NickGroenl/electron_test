@@ -2,7 +2,7 @@
   "appId": "io.github.pleahmacaka.template",
   "artifactName": "${productName}-${version}.${ext}",
   "asar": true,
-  "icon": "./public/icon.ico",
+  "icon": "./public/icon.png",
   "directories": {
     "output": "release"
   },

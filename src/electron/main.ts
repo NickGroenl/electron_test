@@ -30,7 +30,7 @@ async function createWindow() {
 }
 
 async function createTray() {
-    const tray = new Tray("./public/icon.ico")
+    const tray = new Tray("./public/icon.png")
     tray.setToolTip("vite-react-electron")
     tray.setContextMenu(Menu.buildFromTemplate([
         {
