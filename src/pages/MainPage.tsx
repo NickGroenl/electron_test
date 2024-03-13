@@ -6,25 +6,37 @@ import { useEffect, useState } from 'react'
 import { getAllPokemons, getPokemonById } from '../hooks/api/hook'
 
 export default function App() {
-  const [pokemons, setPokemons] = useState([]);
+  const [realPokemons, setRealPokemons] = useState<any>([]);
+  const [pokemons, setPokemons] = useState<any>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<any>(null);
+  const [search, setSearch] = useState();
   const getData = async () => {
     const response = await getAllPokemons();
     setPokemons(response);
+    setRealPokemons(response);
   }
   const getAndSelectPokemon = async (url: string) => {
     const response = await getPokemonById(url);
     if(response) setSelectedPokemon(response);
+    
   }
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
+  const handleSearch = (event: any) => {
+    const search = event.target.value;
+    const pokemonsCast = pokemons?.filter((item: any) => item.name.toLowerCase().includes(String(search)?.toLowerCase()));
+    if(pokemonsCast?.length > 0){
+      setPokemons(pokemonsCast);
+    } else setPokemons(realPokemons);
+    if(search?.length === 0) setPokemons(realPokemons);
+  };
   return (
     <div className="App">
       
       <h1>Obtene los pokemon de la pokeapi 'Free version'</h1>
       <div className="card">
-        <input placeholder='Buscar por Nombre'/>
+        <input onChange={handleSearch} placeholder='Buscar por Nombre'/>
       </div>
       {selectedPokemon !== null ? <div>
         <div style={{display: 'flex'}}>
@@ -54,7 +66,9 @@ export default function App() {
       </div> : <p>Selecciona un pokemon</p>}
       <div className="gridItems">
         {
-          pokemons?.map((e: any, index: number) => <div onClick={() => getAndSelectPokemon(e?.url)}>{String(e?.name).toUpperCase()}</div>)
+          
+          pokemons?.map((e: any, index: number) => <div onClick={() => getAndSelectPokemon(e?.url)}>{String(e?.name).toUpperCase()}
+          </div>)
         }
       </div>
       
