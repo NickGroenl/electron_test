@@ -1,0 +1,35 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  line-height: 0rem;
+}
+
+.card{
+  display: flex;
+  width: 100%;
+}
+.card button{
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0rem;
+}
+.card input{
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0rem;
+}
+
+.gridItems{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+.gridItems div{
+  padding: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.466);
+  border-radius: .5rem;
+  margin: 1rem;
+  cursor: pointer;
+}

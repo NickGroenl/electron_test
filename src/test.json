@@ -1,0 +1,29 @@
+{
+    
+    "base_experience": 64,
+    
+    
+    "height": 8,
+    "held_items": [],
+    "id": 54,
+    "is_default": true,
+    "location_area_encounters": "https://pokeapi.co/api/v2/pokemon/54/encounters",
+    "name": "psyduck",
+    "order": 93,
+    "past_abilities": [],
+    "past_types": [],
+    "species": {
+        "name": "psyduck",
+        "url": "https://pokeapi.co/api/v2/pokemon-species/54/"
+    },
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "water",
+                "url": "https://pokeapi.co/api/v2/type/11/"
+            }
+        }
+    ],
+    "weight": 196
+}
